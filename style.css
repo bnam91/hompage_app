@@ -128,7 +128,7 @@ main {
 /* ===== APP CARD ===== */
 .app-card {
   background: transparent;
-  border: 1px solid var(--border);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: var(--radius);
   padding: 20px;
   display: flex;
@@ -137,19 +137,21 @@ main {
   text-decoration: none;
   color: inherit;
   cursor: pointer;
-  transition: background 0.15s ease, border-color 0.15s ease;
+  transition: background 0.18s cubic-bezier(0.25, 0, 0.4, 1),
+              border-color 0.18s cubic-bezier(0.25, 0, 0.4, 1);
 }
 
 .app-card:hover {
-  background: var(--surface);
-  border-color: var(--border-hover);
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.28);
 }
 
 .app-icon {
   width: 52px;
   height: 52px;
+  min-width: 52px;
   border-radius: 10px;
-  background: rgba(255,255,255,0.06);
+  background: rgba(255, 255, 255, 0.06);
   flex-shrink: 0;
   display: flex;
   align-items: center;
@@ -243,11 +245,12 @@ section#youtube {
   font-size: 14px;
   color: var(--text);
   line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
   flex: 1;
   min-width: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .yt-date {

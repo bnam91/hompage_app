@@ -2,7 +2,7 @@
   {
     "id": "focusflow",
     "name": "FocusFlow",
-    "tagline": "스마트 타이머로 집중력 유지",
+    "tagline": "딴짓 안 하려고 만들었어요",
     "description": "집중 세션을 관리하는 아름다운 포모도로 타이머.",
     "category": "Productivity",
     "price": "free",
@@ -16,7 +16,7 @@
   {
     "id": "clipboardpro",
     "name": "ClipBoard Pro",
-    "tagline": "강력한 클립보드 히스토리 관리",
+    "tagline": "Cmd+C를 믿을 수 있게",
     "description": "복사한 내용을 절대 잃어버리지 마세요. 클립보드 히스토리를 정리하고 검색하세요.",
     "category": "Utility",
     "price": "paid",
@@ -30,7 +30,7 @@
   {
     "id": "quietmode",
     "name": "QuietMode",
-    "tagline": "클릭 한 번으로 모든 알림 무음",
+    "tagline": "집중할 때 방해 말라고",
     "description": "클릭 한 번으로 모든 알림을 차단하세요. 집중 작업과 발표에 최적.",
     "category": "Utility",
     "price": "free",
@@ -44,7 +44,7 @@
   {
     "id": "batteryguard",
     "name": "BatteryGuard",
-    "tagline": "배터리 수명을 지키는 스마트 관리",
+    "tagline": "배터리 걱정 없이 만들 수 있게",
     "description": "스마트 충전 제한과 실시간 상태 모니터링으로 MacBook 배터리 수명을 늘리세요.",
     "category": "Utility",
     "price": "paid",
@@ -58,7 +58,7 @@
   {
     "id": "swiftlaunch",
     "name": "SwiftLaunch",
-    "tagline": "키보드만으로 번개같이 앱 실행",
+    "tagline": "손이 키보드에서 안 떨어지게",
     "description": "군더더기 없는 키보드 중심의 앱 런처.",
     "category": "Productivity",
     "price": "free",
@@ -72,7 +72,7 @@
   {
     "id": "nightshiftpro",
     "name": "NightShift Pro",
-    "tagline": "야간 모드를 내 취향대로 설정",
+    "tagline": "밤에도 눈 안 아프게",
     "description": "고급 화면 색온도 조절. 늦은 밤에도 눈을 보호하세요.",
     "category": "Utility",
     "price": "paid",
