@@ -2,21 +2,21 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --bg: #000000;
-  --bg-card: #1c1c1e;
-  --bg-card-hover: #2c2c2e;
-  --text: #f5f5f7;
-  --text-muted: #86868b;
-  --accent: #0a84ff;
-  --border: #2c2c2e;
-  --tag-free-bg: #1a3a2e;
-  --tag-free-text: #4ade80;
-  --tag-paid-bg: #1a1f2e;
-  --tag-paid-text: #0a84ff;
-  --tag-os-bg: #201e2e;
+  --bg: #f5f5f7;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f0f0f5;
+  --text: #1d1d1f;
+  --text-muted: #6e6e73;
+  --accent: #0071e3;
+  --border: #d2d2d7;
+  --tag-free-bg: #e8f5ee;
+  --tag-free-text: #1a7a42;
+  --tag-paid-bg: #e5f0ff;
+  --tag-paid-text: #0055b3;
+  --tag-os-bg: #f0f0f5;
   --tag-os-text: #6e6e73;
-  --tag-new-bg: #2a1f1a;
-  --tag-new-text: #e8834d;
+  --tag-new-bg: #fff0f5;
+  --tag-new-text: #c2185b;
   --radius: 16px;
   --font: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Segoe UI', sans-serif;
 }
@@ -41,9 +41,10 @@ header {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(0, 0, 0, 0.72);
+  background: rgba(245, 245, 247, 0.82);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid var(--border);
 }
 
 nav {
@@ -60,7 +61,7 @@ nav {
   font-size: 17px;
   font-weight: 700;
   letter-spacing: -0.3px;
-  color: #f5f5f7;
+  color: var(--text);
 }
 
 .nav-links {
@@ -80,7 +81,7 @@ nav {
 .nav-links a:hover,
 .nav-links a.active {
   color: var(--text);
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(0, 0, 0, 0.05);
 }
 
 /* ===== HERO ===== */
@@ -147,7 +148,7 @@ main {
 
 .app-card:hover {
   background: var(--bg-card-hover);
-  border-color: #3a3a3c;
+  border-color: #b0b0b8;
 }
 
 .app-icon {
@@ -155,7 +156,7 @@ main {
   height: 60px;
   border-radius: 13px;
   flex-shrink: 0;
-  background: #2c2c2e;
+  background: #e8e8ed;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -209,8 +210,8 @@ main {
   font-size: 12px;
   font-weight: 600;
   color: var(--accent);
-  background: rgba(10, 132, 255, 0.12);
-  border: 1px solid rgba(10, 132, 255, 0.3);
+  background: rgba(0, 113, 227, 0.08);
+  border: 1px solid rgba(0, 113, 227, 0.25);
   border-radius: 6px;
   padding: 3px 10px;
   white-space: nowrap;
