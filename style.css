@@ -1,23 +1,40 @@
 /* ===== RESET & BASE ===== */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/*
+ * Design B — Indie Developer Style
+ * Reference: sindresorhus.com, ProNotes, Tot, Lungo
+ * ProNotes values: bg #1a1a1a / card #282828 / amber accent
+ */
+
 :root {
-  --bg: #0d0f1a;
-  --bg-card: #13162a;
-  --bg-card-hover: #1a1e35;
-  --text: #e8eaf6;
-  --text-muted: #7b83b0;
-  --accent: #c084fc;
-  --accent2: #60a5fa;
-  --border: #1f2547;
-  --tag-free: #1a3a2e;
-  --tag-free-text: #4ade80;
-  --tag-paid: #1e2a3a;
-  --tag-paid-text: #60a5fa;
-  --tag-os: #1a1a2e;
-  --tag-os-text: #a78bfa;
-  --radius: 16px;
-  --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  /* --- Backgrounds (ProNotes dark palette) --- */
+  --bg:            #111111;
+  --bg-card:       #1a1a1a;   /* ProNotes bg */
+  --bg-card-inner: #282828;   /* ProNotes card */
+  --bg-card-hover: #202020;
+
+  /* --- Text --- */
+  --text:          #ececec;
+  --text-muted:    #888888;
+  --text-subtle:   #555555;
+
+  /* --- Accent: warm amber (ProNotes oklch amber inspired) --- */
+  --accent:        #f59e0b;
+  --accent-warm:   #d97706;
+  --accent-dim:    rgba(245, 158, 11, 0.10);
+  --accent-border: rgba(245, 158, 11, 0.25);
+
+  /* --- Borders --- */
+  --border-color:  rgba(255, 255, 255, 0.06);
+  --border-strong: rgba(255, 255, 255, 0.10);
+
+  /* --- Misc --- */
+  --radius:        12px;
+  --radius-sm:     8px;
+  --font:          'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
 html { scroll-behavior: smooth; }
@@ -27,49 +44,53 @@ body {
   color: var(--text);
   font-family: var(--font);
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
+  line-height: 1.6;
 }
 
 a { color: inherit; text-decoration: none; }
 
-/* ===== NAV ===== */
+/* ===== NAV — transparent, personal site feel ===== */
 header {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(13, 15, 26, 0.85);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border);
+  /* No background, no blur — indie personal site */
 }
 
 nav {
-  max-width: 1100px;
+  max-width: 1120px;
   margin: 0 auto;
-  padding: 0 24px;
-  height: 56px;
+  padding: 0 32px;
+  height: 68px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
 .logo {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 700;
-  letter-spacing: -0.3px;
-  background: linear-gradient(135deg, var(--accent), var(--accent2));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.5px;
+  color: var(--text);
+}
+
+.logo-accent {
+  color: var(--accent);
 }
 
 .nav-links {
   display: flex;
-  gap: 28px;
+  gap: 32px;
 }
 
 .nav-links a {
   font-size: 14px;
+  font-weight: 500;
   color: var(--text-muted);
-  transition: color 0.2s;
+  transition: color 0.18s;
+  letter-spacing: 0.01em;
 }
 
 .nav-links a:hover,
@@ -77,86 +98,118 @@ nav {
   color: var(--text);
 }
 
-/* ===== HERO ===== */
+/* ===== HERO — personal, typographic tone ===== */
 .hero {
-  max-width: 1100px;
+  max-width: 1120px;
   margin: 0 auto;
-  padding: 80px 24px 60px;
-  text-align: center;
+  padding: 80px 32px 64px;
 }
 
 .hero h1 {
-  font-size: clamp(48px, 7vw, 80px);
-  font-weight: 800;
-  letter-spacing: -2px;
-  line-height: 1.1;
+  font-size: clamp(36px, 5vw, 60px);
+  font-weight: 700;
+  letter-spacing: -1.5px;
+  line-height: 1.12;
   color: var(--text);
+  max-width: 560px;
 }
 
 .hero h1 .highlight {
-  background: linear-gradient(135deg, var(--accent), var(--accent2));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--accent);
 }
 
 .hero-sub {
-  margin-top: 20px;
+  margin-top: 18px;
   font-size: 15px;
   color: var(--text-muted);
-  font-family: 'SF Mono', 'Fira Code', monospace;
-  letter-spacing: 0.2px;
+  font-weight: 400;
 }
 
 .hero-sub a {
-  color: var(--accent2);
+  color: var(--accent);
   text-decoration: underline;
   text-underline-offset: 3px;
+  text-decoration-color: rgba(245, 158, 11, 0.35);
+  transition: text-decoration-color 0.18s;
 }
 
-/* ===== APP GRID ===== */
+.hero-sub a:hover {
+  text-decoration-color: var(--accent);
+}
+
+.hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 16px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.hero-meta-dot {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--text-muted);
+  opacity: 0.4;
+  flex-shrink: 0;
+}
+
+/* ===== APP GRID — 2 column, generous spacing ===== */
 main {
-  max-width: 1100px;
+  max-width: 1120px;
   margin: 0 auto;
-  padding: 0 24px 80px;
+  padding: 0 32px 100px;
+}
+
+.section-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+  opacity: 0.55;
 }
 
 .app-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
+  gap: 12px;
 }
 
-/* ===== APP CARD ===== */
+/* ===== APP CARD — hover: amber left border ===== */
 .app-card {
   background: var(--bg-card);
-  border: 1px solid var(--border);
+  border: 1px solid var(--border-color);
+  border-left: 3px solid transparent;
   border-radius: var(--radius);
-  padding: 24px;
+  padding: 28px 24px;
   display: flex;
   align-items: flex-start;
-  gap: 18px;
+  gap: 20px;
   cursor: pointer;
-  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  transition: background 0.2s, border-left-color 0.2s;
   text-decoration: none;
   color: inherit;
 }
 
 .app-card:hover {
   background: var(--bg-card-hover);
-  border-color: #2a2f55;
-  transform: translateY(-2px);
+  border-left-color: var(--accent);
 }
 
+/* App icon — larger at 72px */
 .app-icon {
-  width: 64px;
-  height: 64px;
-  border-radius: 14px;
+  width: 72px;
+  height: 72px;
+  border-radius: 16px;
   flex-shrink: 0;
-  background: var(--border);
+  background: var(--bg-card-inner);  /* ProNotes card #282828 */
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 28px;
+  font-size: 32px;
   overflow: hidden;
 }
 
@@ -164,33 +217,38 @@ main {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 14px;
+  border-radius: 16px;
 }
 
 .app-info {
   flex: 1;
   min-width: 0;
+  padding-top: 2px;
 }
 
 .app-name {
-  font-size: 18px;
-  font-weight: 700;
+  font-size: 17px;
+  font-weight: 600;
   letter-spacing: -0.3px;
-  margin-bottom: 4px;
+  margin-bottom: 5px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  color: var(--text);
 }
 
 .app-tagline {
   font-size: 14px;
   color: var(--text-muted);
-  margin-bottom: 10px;
-  white-space: nowrap;
+  margin-bottom: 14px;
+  line-height: 1.5;
   overflow: hidden;
-  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
+/* ===== TAGS — simple text tags, no price badge ===== */
 .app-tags {
   display: flex;
   gap: 6px;
@@ -199,31 +257,135 @@ main {
 
 .tag {
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 500;
   padding: 3px 8px;
-  border-radius: 6px;
-  text-transform: lowercase;
+  border-radius: var(--radius-sm);
+  letter-spacing: 0.01em;
+  border: 1px solid transparent;
 }
 
-.tag-free { background: var(--tag-free); color: var(--tag-free-text); }
-.tag-paid { background: var(--tag-paid); color: var(--tag-paid-text); }
-.tag-os   { background: var(--tag-os);   color: var(--tag-os-text);   }
-.tag-new  { background: #2a1a3a; color: #f0abfc; }
+.tag-free {
+  color: #6ee7b7;
+  background: rgba(110, 231, 183, 0.07);
+  border-color: rgba(110, 231, 183, 0.14);
+}
 
-/* ===== FOOTER ===== */
+.tag-paid {
+  color: var(--accent);
+  background: var(--accent-dim);
+  border-color: var(--accent-border);
+}
+
+.tag-os {
+  color: #94a3b8;
+  background: rgba(148, 163, 184, 0.07);
+  border-color: rgba(148, 163, 184, 0.12);
+}
+
+.tag-new {
+  color: #f9a8d4;
+  background: rgba(249, 168, 212, 0.07);
+  border-color: rgba(249, 168, 212, 0.14);
+}
+
+/* ===== FOOTER — with social links area ===== */
 footer {
-  border-top: 1px solid var(--border);
-  padding: 32px 24px;
-  text-align: center;
+  border-top: 1px solid var(--border-color);
+}
+
+.footer-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 40px 32px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.footer-info {
   font-size: 13px;
   color: var(--text-muted);
+  line-height: 1.9;
 }
 
-footer a { color: var(--accent2); }
-footer a:hover { text-decoration: underline; }
+.footer-info a {
+  color: var(--text-muted);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-color: transparent;
+  transition: color 0.18s, text-decoration-color 0.18s;
+}
+
+.footer-info a:hover {
+  color: var(--text);
+  text-decoration-color: var(--text-muted);
+}
+
+.footer-social {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-end;
+}
+
+.footer-social-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-subtle);
+}
+
+.footer-social-links {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.footer-social-links a {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: color 0.18s;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.footer-social-links a:hover {
+  color: var(--accent);
+}
+
+.social-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0.4;
+  transition: opacity 0.18s;
+  flex-shrink: 0;
+}
+
+.footer-social-links a:hover .social-dot {
+  opacity: 1;
+}
 
 /* ===== RESPONSIVE ===== */
-@media (max-width: 640px) {
+@media (max-width: 700px) {
+  nav { padding: 0 20px; height: 60px; }
+  .hero { padding: 48px 20px 48px; }
+  .hero h1 { font-size: 34px; letter-spacing: -1px; }
+  main { padding: 0 20px 72px; }
   .app-grid { grid-template-columns: 1fr; }
-  .hero h1 { font-size: 40px; letter-spacing: -1px; }
+  .app-icon { width: 60px; height: 60px; }
+  .footer-inner {
+    padding: 32px 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .footer-social { align-items: flex-start; }
+  .footer-social-links { flex-wrap: wrap; }
 }
