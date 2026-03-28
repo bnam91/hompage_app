@@ -101,6 +101,11 @@ nav {
   max-width: 1120px;
   margin: 0 auto;
   padding: 80px 32px 64px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
 }
 
 .hero h1 {
@@ -306,6 +311,66 @@ main {
   color: #f9a8d4;
   background: rgba(249, 168, 212, 0.07);
   border-color: rgba(249, 168, 212, 0.14);
+}
+
+/* ===== HERO CTA ===== */
+.hero-cta {
+  display: flex;
+  gap: 12px;
+  margin-top: 32px;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111;
+  background: var(--accent);
+  border: none;
+  border-radius: 980px;
+  padding: 11px 26px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: opacity 0.15s;
+}
+
+.btn-primary:hover { opacity: 0.85; }
+
+.btn-secondary {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--accent-dim);
+  border: 1px solid var(--accent-border);
+  border-radius: 980px;
+  padding: 11px 26px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.15s;
+}
+
+.btn-secondary:hover { background: rgba(245, 158, 11, 0.18); }
+
+.hero-scroll {
+  position: absolute;
+  bottom: 32px;
+  left: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.hero-scroll-arrow {
+  width: 1px;
+  height: 32px;
+  background: linear-gradient(to bottom, transparent, var(--text-muted));
+  animation: scrollPulse 1.8s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
 }
 
 /* ===== ANIMATIONS ===== */
