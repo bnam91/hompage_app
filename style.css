@@ -91,15 +91,27 @@ hr {
 }
 
 .intro-main {
-  font-size: 17px;
-  font-weight: 400;
-  color: var(--text);
-  line-height: 1.5;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+
+  /* Apple-style text gradient */
+  background: linear-gradient(
+    135deg,
+    #F0EDE8 0%,
+    #F0EDE8 40%,
+    #8A8570 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .intro-sub {
-  margin-top: 6px;
-  font-size: 14px;
+  margin-top: 8px;
+  font-size: 15px;
+  font-weight: 400;
   color: var(--muted);
   line-height: 1.5;
 }
