@@ -110,6 +110,7 @@ nav {
   line-height: 1.12;
   color: var(--text);
   max-width: 560px;
+  animation: fadeInUp 0.6s ease both;
 }
 
 .hero h1 .highlight {
@@ -305,6 +306,44 @@ main {
   color: #f9a8d4;
   background: rgba(249, 168, 212, 0.07);
   border-color: rgba(249, 168, 212, 0.14);
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== ABOUT SECTION ===== */
+.about-section {
+  background: #161616;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 60px 24px;
+}
+
+.about-section .section-label {
+  max-width: 1080px;
+  margin: 0 auto 16px;
+  display: block;
+}
+
+.about-title {
+  max-width: 1080px;
+  margin: 0 auto 16px;
+  font-size: clamp(22px, 3vw, 36px);
+  font-weight: 700;
+  letter-spacing: -0.6px;
+  line-height: 1.2;
+  color: var(--text);
+}
+
+.about-desc {
+  max-width: 540px;
+  margin: 0 auto;
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.75;
 }
 
 /* ===== FOOTER — with social links area ===== */
