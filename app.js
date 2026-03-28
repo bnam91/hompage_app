@@ -15,7 +15,7 @@ async function loadApps() {
 
   const grid = document.getElementById('app-grid');
   grid.innerHTML = apps.map(app => `
-    <a class="app-card" href="${app.buyUrl || app.downloadUrl || '#'}">
+    <a class="app-card" href="${app.buyUrl || app.downloadUrl || '#'}" aria-label="${app.name} - ${app.tagline}">
       <div class="app-icon">
         <img
           src="${app.icon}"
