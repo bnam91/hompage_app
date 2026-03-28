@@ -2,32 +2,30 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 /*
- * Design B — Indie Developer Style
- * Reference: sindresorhus.com, ProNotes, Tot, Lungo
- * ProNotes values: bg #1a1a1a / card #282828 / amber accent
+ * Design D — Light / White
  */
 
 :root {
-  /* --- Backgrounds (ProNotes dark palette) --- */
-  --bg:            #111111;
-  --bg-card:       #1a1a1a;   /* ProNotes bg */
-  --bg-card-inner: #282828;   /* ProNotes card */
-  --bg-card-hover: #202020;
+  /* --- Backgrounds --- */
+  --bg:            #ffffff;
+  --bg-card:       #f5f5f7;
+  --bg-card-inner: #e8e8ed;
+  --bg-card-hover: #ebebf0;
 
   /* --- Text --- */
-  --text:          #ececec;
-  --text-muted:    #888888;
-  --text-subtle:   #555555;
+  --text:          #1d1d1f;
+  --text-muted:    #6e6e73;
+  --text-subtle:   #aeaeb2;
 
-  /* --- Accent: warm amber (ProNotes oklch amber inspired) --- */
-  --accent:        #f59e0b;
-  --accent-warm:   #d97706;
-  --accent-dim:    rgba(245, 158, 11, 0.10);
-  --accent-border: rgba(245, 158, 11, 0.25);
+  /* --- Accent: deep indigo --- */
+  --accent:        #3b5bdb;
+  --accent-warm:   #2f4ac0;
+  --accent-dim:    rgba(59, 91, 219, 0.08);
+  --accent-border: rgba(59, 91, 219, 0.20);
 
   /* --- Borders --- */
-  --border-color:  rgba(255, 255, 255, 0.06);
-  --border-strong: rgba(255, 255, 255, 0.10);
+  --border-color:  rgba(0, 0, 0, 0.07);
+  --border-strong: rgba(0, 0, 0, 0.12);
 
   /* --- Misc --- */
   --radius:        12px;
@@ -285,9 +283,9 @@ main {
 }
 
 .tag-free {
-  color: #6ee7b7;
-  background: rgba(110, 231, 183, 0.07);
-  border-color: rgba(110, 231, 183, 0.14);
+  color: #0a7c42;
+  background: rgba(10, 124, 66, 0.08);
+  border-color: rgba(10, 124, 66, 0.18);
 }
 
 .tag-paid {
@@ -297,15 +295,15 @@ main {
 }
 
 .tag-os {
-  color: #94a3b8;
-  background: rgba(148, 163, 184, 0.07);
-  border-color: rgba(148, 163, 184, 0.12);
+  color: #6e6e73;
+  background: rgba(110, 110, 115, 0.07);
+  border-color: rgba(110, 110, 115, 0.15);
 }
 
 .tag-new {
-  color: #f9a8d4;
-  background: rgba(249, 168, 212, 0.07);
-  border-color: rgba(249, 168, 212, 0.14);
+  color: #c2185b;
+  background: rgba(194, 24, 91, 0.07);
+  border-color: rgba(194, 24, 91, 0.15);
 }
 
 /* ===== ANIMATIONS ===== */
@@ -316,7 +314,7 @@ main {
 
 /* ===== ABOUT SECTION ===== */
 .about-section {
-  background: #161616;
+  background: #f0f0f5;
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
   padding: 60px 24px;
