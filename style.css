@@ -2,22 +2,14 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --bg: #0d0f1a;
-  --bg-card: #13162a;
-  --bg-card-hover: #1a1e35;
-  --text: #e8eaf6;
-  --text-muted: #7b83b0;
-  --accent: #c084fc;
-  --accent2: #60a5fa;
-  --border: #1f2547;
-  --tag-free: #1a3a2e;
-  --tag-free-text: #4ade80;
-  --tag-paid: #1e2a3a;
-  --tag-paid-text: #60a5fa;
-  --tag-os: #1a1a2e;
-  --tag-os-text: #a78bfa;
-  --radius: 16px;
-  --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --bg: #000000;
+  --bg-card: #1c1c1e;
+  --bg-card-hover: #2c2c2e;
+  --text: #f5f5f7;
+  --text-muted: #86868b;
+  --border: rgba(255, 255, 255, 0.08);
+  --radius: 18px;
+  --font: -apple-system, 'SF Pro Display', BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
 }
 
 html { scroll-behavior: smooth; }
@@ -27,6 +19,7 @@ body {
   color: var(--text);
   font-family: var(--font);
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
 }
 
@@ -37,37 +30,36 @@ header {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(13, 15, 26, 0.85);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border);
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 }
 
 nav {
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 24px;
-  height: 56px;
+  height: 52px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
 .logo {
-  font-size: 18px;
-  font-weight: 700;
+  font-size: 17px;
+  font-weight: 600;
   letter-spacing: -0.3px;
-  background: linear-gradient(135deg, var(--accent), var(--accent2));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--text);
 }
 
 .nav-links {
   display: flex;
-  gap: 28px;
+  gap: 32px;
 }
 
 .nav-links a {
   font-size: 14px;
+  font-weight: 400;
   color: var(--text-muted);
   transition: color 0.2s;
 }
@@ -81,43 +73,47 @@ nav {
 .hero {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 80px 24px 60px;
+  padding: 96px 24px 72px;
   text-align: center;
 }
 
 .hero h1 {
   font-size: clamp(48px, 7vw, 80px);
-  font-weight: 800;
-  letter-spacing: -2px;
-  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: -2.5px;
+  line-height: 1.05;
   color: var(--text);
 }
 
 .hero h1 .highlight {
-  background: linear-gradient(135deg, var(--accent), var(--accent2));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--text);
 }
 
 .hero-sub {
   margin-top: 20px;
-  font-size: 15px;
+  font-size: 19px;
+  font-weight: 400;
   color: var(--text-muted);
-  font-family: 'SF Mono', 'Fira Code', monospace;
-  letter-spacing: 0.2px;
+  letter-spacing: -0.3px;
+  line-height: 1.5;
 }
 
 .hero-sub a {
-  color: var(--accent2);
-  text-decoration: underline;
-  text-underline-offset: 3px;
+  color: var(--text-muted);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.hero-sub a:hover {
+  color: var(--text);
+  border-color: rgba(255, 255, 255, 0.5);
 }
 
 /* ===== APP GRID ===== */
 main {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 0 24px 80px;
+  padding: 0 24px 96px;
 }
 
 .app-grid {
@@ -131,20 +127,18 @@ main {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 24px;
+  padding: 28px;
   display: flex;
   align-items: flex-start;
-  gap: 18px;
+  gap: 20px;
   cursor: pointer;
-  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  transition: background 0.2s ease;
   text-decoration: none;
   color: inherit;
 }
 
 .app-card:hover {
   background: var(--bg-card-hover);
-  border-color: #2a2f55;
-  transform: translateY(-2px);
 }
 
 .app-icon {
@@ -152,7 +146,7 @@ main {
   height: 64px;
   border-radius: 14px;
   flex-shrink: 0;
-  background: var(--border);
+  background: rgba(255, 255, 255, 0.06);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -173,22 +167,25 @@ main {
 }
 
 .app-name {
-  font-size: 18px;
-  font-weight: 700;
+  font-size: 17px;
+  font-weight: 600;
   letter-spacing: -0.3px;
   margin-bottom: 4px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  color: var(--text);
 }
 
 .app-tagline {
   font-size: 14px;
   color: var(--text-muted);
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-weight: 400;
+  letter-spacing: -0.1px;
 }
 
 .app-tags {
@@ -199,31 +196,44 @@ main {
 
 .tag {
   font-size: 11px;
-  font-weight: 600;
-  padding: 3px 8px;
-  border-radius: 6px;
+  font-weight: 500;
+  padding: 3px 9px;
+  border-radius: 20px;
   text-transform: lowercase;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text);
+  letter-spacing: 0;
 }
 
-.tag-free { background: var(--tag-free); color: var(--tag-free-text); }
-.tag-paid { background: var(--tag-paid); color: var(--tag-paid-text); }
-.tag-os   { background: var(--tag-os);   color: var(--tag-os-text);   }
-.tag-new  { background: #2a1a3a; color: #f0abfc; }
+.tag-free { background: rgba(255, 255, 255, 0.1); color: var(--text); }
+.tag-paid { background: rgba(255, 255, 255, 0.1); color: var(--text); }
+.tag-os   { background: rgba(255, 255, 255, 0.1); color: var(--text); }
+.tag-new  { background: rgba(255, 255, 255, 0.1); color: var(--text); }
 
 /* ===== FOOTER ===== */
 footer {
   border-top: 1px solid var(--border);
-  padding: 32px 24px;
+  padding: 40px 24px;
   text-align: center;
   font-size: 13px;
   color: var(--text-muted);
+  font-weight: 400;
 }
 
-footer a { color: var(--accent2); }
-footer a:hover { text-decoration: underline; }
+footer a {
+  color: var(--text-muted);
+  transition: color 0.2s;
+}
+
+footer a:hover {
+  color: var(--text);
+}
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 640px) {
   .app-grid { grid-template-columns: 1fr; }
-  .hero h1 { font-size: 40px; letter-spacing: -1px; }
+  .hero { padding: 64px 24px 48px; }
+  .hero h1 { font-size: 40px; letter-spacing: -1.5px; }
+  .hero-sub { font-size: 17px; }
+  .app-card { padding: 22px; }
 }
