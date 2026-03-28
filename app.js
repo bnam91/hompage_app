@@ -15,7 +15,7 @@ async function loadApps() {
 
   const grid = document.getElementById('app-grid');
   grid.innerHTML = apps.map(app => `
-    <a class="app-card" href="${app.buyUrl || app.downloadUrl || '#'}" aria-label="${app.name} - ${app.tagline}">
+    <a class="app-card" href="${app.buyUrl || app.downloadUrl || '#'}">
       <div class="app-icon">
         <img
           src="${app.icon}"
@@ -26,8 +26,11 @@ async function loadApps() {
       <div class="app-info">
         <div class="app-name">${app.name}</div>
         <div class="app-tagline">${app.tagline}</div>
-        <div class="app-tags">
-          ${app.tags.map(tag => `<span class="tag tag-${tag}">${tag}</span>`).join('')}
+        <div class="app-card-footer">
+          <div class="app-tags">
+            ${app.tags.map(tag => `<span class="tag tag-${tag}">${tag}</span>`).join('')}
+          </div>
+          <span class="app-cta">${app.price === 'free' ? 'Free' : 'Get'}</span>
         </div>
       </div>
     </a>
