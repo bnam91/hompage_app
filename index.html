@@ -1,87 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>소문의섬 — Apps made with care.</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" /></noscript>
+  <title>소문의섬</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- NAV -->
   <header>
-    <nav>
-      <a href="/" class="logo">소문의섬<span class="logo-accent">.</span></a>
-      <div class="nav-links">
-        <a href="#apps" class="active">앱</a>
-        <a href="#about">소개</a>
-        <a href="https://youtube.com" target="_blank">YouTube</a>
-      </div>
-    </nav>
+    <a href="/" class="logo">소문의섬</a>
   </header>
 
-  <!-- HERO -->
-  <section class="hero">
-    <h1>정성껏 만든<br><span class="highlight">앱들.</span></h1>
-    <p class="hero-sub">
-      작은 팀. 좋은 앱. &middot; <a href="https://youtube.com" target="_blank">유튜브에서 보기</a>
-    </p>
-    <div class="hero-meta">
-      <span id="app-count">6</span>개 앱
-      <span class="hero-meta-dot"></span>
-      Mac &amp; iOS
-      <span class="hero-meta-dot"></span>
-      한국에서 만듦
-    </div>
-    <div class="hero-cta">
-      <a href="#apps" class="btn-primary">앱 보기</a>
-      <a href="https://youtube.com" target="_blank" class="btn-secondary">유튜브 채널</a>
-    </div>
-    <div class="hero-scroll">
-      <div class="hero-scroll-arrow"></div>
-    </div>
+  <section class="intro">
+    <div class="status"><span class="status-dot"></span>작업 중</div>
+    <p class="intro-main">코딩하고 디자인하고 가끔 팝니다.</p>
+    <p class="intro-sub">앱 만드는 소문의섬입니다.</p>
   </section>
 
-  <!-- APP GRID -->
+  <hr>
+
   <main id="apps">
-    <p class="section-label">전체 앱</p>
+    <p class="section-title">만든 것들</p>
     <div class="app-grid" id="app-grid">
       <!-- 앱 카드는 JS로 렌더링 -->
     </div>
   </main>
 
-  <!-- ABOUT -->
-  <section class="about-section" id="about">
-    <p class="section-label">소개</p>
-    <h2 class="about-title">작은 팀,<br>좋은 앱.</h2>
-    <p class="about-desc">소문의섬은 1인 인디 스튜디오입니다. Mac과 iOS 앱을 만들어요. 모든 앱은 정성껏 만듭니다 — 불필요한 구독 없이, 사용자의 시간을 존중하는 도구만.</p>
+  <hr>
+
+  <section id="youtube">
+    <p class="section-title">최근 영상</p>
+    <ul class="yt-list" id="yt-list">
+      <!-- 유튜브 목록은 JS로 렌더링 -->
+    </ul>
   </section>
 
-  <!-- FOOTER -->
+  <hr>
+
   <footer>
-    <div class="footer-inner">
-      <div class="footer-info">
-        <div>소문의섬이 만들었습니다</div>
-        <div><a href="mailto:hello@example.com">hello@example.com</a></div>
-      </div>
-      <div class="footer-social">
-        <span class="footer-social-label">팔로우</span>
-        <div class="footer-social-links">
-          <a href="https://youtube.com" target="_blank">
-            <span class="social-dot"></span>YouTube
-          </a>
-          <a href="https://twitter.com" target="_blank">
-            <span class="social-dot"></span>Twitter
-          </a>
-          <a href="https://github.com" target="_blank">
-            <span class="social-dot"></span>GitHub
-          </a>
-        </div>
-      </div>
+    <div class="footer-links">
+      <a href="https://youtube.com" target="_blank">YouTube</a>
+      <span class="footer-sep">·</span>
+      <a href="https://github.com" target="_blank">GitHub</a>
+      <span class="footer-sep">·</span>
+      <a href="https://twitter.com" target="_blank">Twitter</a>
+      <span class="footer-sep">·</span>
+      <a href="mailto:hello@example.com">hello@example.com</a>
     </div>
   </footer>
 
