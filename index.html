@@ -4,49 +4,55 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>소문의섬</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
   <header>
-    <a href="/" class="logo">소문의섬</a>
+    <nav>
+      <a href="/" class="logo">소문의섬</a>
+      <div class="nav-links">
+        <a href="#apps">앱</a>
+        <a href="https://youtube.com" target="_blank">YouTube</a>
+      </div>
+    </nav>
   </header>
 
-  <section class="intro">
-    <div class="status"><span class="status-dot"></span>지금 만드는 중</div>
-    <p class="intro-main">코딩하고 디자인하고, 가끔 팝니다.</p>
-    <p class="intro-sub">여기서 만든 거 직접 쓰고 있어요.</p>
+  <section class="hero">
+    <div class="hero-inner">
+      <p class="hero-badge">인디 Mac 앱 · 1인 개발</p>
+      <h1 class="hero-title">혼자 만들고,<br><span class="gradient-text">혼자 씁니다.</span></h1>
+      <p class="hero-sub">내가 쓰려고 만든 앱이 어쩌다 6개가 됐어요.</p>
+      <div class="hero-cta">
+        <a href="#apps" class="cta-primary">앱 6개 보러 가기 →</a>
+        <span class="cta-sep">·</span>
+        <a href="https://youtube.com" target="_blank" class="cta-secondary">유튜브 →</a>
+      </div>
+    </div>
   </section>
 
-  <main id="apps" style="margin-top: 56px;">
-    <p class="section-title">만든 것들</p>
-    <div class="app-grid" id="app-grid">
-      <!-- 앱 카드는 JS로 렌더링 -->
-    </div>
+  <main id="apps">
+    <p class="section-label">만든 것들</p>
+    <div class="app-grid" id="app-grid"></div>
   </main>
 
-  <section id="youtube" style="margin-top: 56px;">
-    <p class="section-title">최근 영상</p>
-    <ul class="yt-list" id="yt-list">
-      <!-- 유튜브 목록은 JS로 렌더링 -->
-    </ul>
+  <section id="youtube" class="yt-section">
+    <p class="section-label">최근 영상</p>
+    <ul class="yt-list" id="yt-list"></ul>
   </section>
 
-  <hr>
-
   <footer>
-    <div class="footer-links">
-      <a href="https://youtube.com" target="_blank">YouTube</a>
-      <span class="footer-sep">·</span>
-      <a href="https://github.com" target="_blank">GitHub</a>
-      <span class="footer-sep">·</span>
-      <a href="https://twitter.com" target="_blank">Twitter</a>
-      <span class="footer-sep">·</span>
-      <a href="mailto:hello@example.com">hello@example.com</a>
+    <div class="footer-inner">
+      <span>소문의섬 · hello@example.com</span>
+      <div class="footer-links">
+        <a href="https://youtube.com" target="_blank">YouTube</a>
+        <a href="https://github.com" target="_blank">GitHub</a>
+        <a href="https://twitter.com" target="_blank">Twitter</a>
+      </div>
     </div>
   </footer>
-
   <script src="app.js"></script>
 </body>
 </html>
