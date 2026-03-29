@@ -101,6 +101,46 @@ hr { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
 .footer-links a { font-size: 12px; color: var(--subtle); transition: color 0.15s; }
 .footer-links a:hover { color: var(--text); }
 
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Hero stagger */
+.hero-badge  { animation: fadeUp 0.5s cubic-bezier(0.22,1,0.36,1) 0.05s both; }
+.hero-title  { animation: fadeUp 0.6s cubic-bezier(0.22,1,0.36,1) 0.12s both; }
+.hero-sub    { animation: fadeUp 0.5s cubic-bezier(0.22,1,0.36,1) 0.22s both; }
+.hero-cta    { animation: fadeUp 0.5s cubic-bezier(0.22,1,0.36,1) 0.30s both; }
+
+/* Card hover lift */
+.app-card {
+  transition: border-color 0.2s, background 0.2s,
+              transform 0.35s cubic-bezier(0.22,1,0.36,1),
+              box-shadow 0.35s cubic-bezier(0.22,1,0.36,1);
+}
+.app-card:hover {
+  border-color: rgba(0,0,0,0.12);
+  background: #ececee;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.07);
+}
+
+/* Card entrance via IntersectionObserver */
+.card-hidden { opacity: 0; transform: translateY(16px); }
+.card-visible { animation: fadeUp 0.5s cubic-bezier(0.22,1,0.36,1) both; }
+
+/* YouTube items entrance */
+.yt-hidden  { opacity: 0; transform: translateY(10px); }
+.yt-visible { animation: fadeUp 0.4s cubic-bezier(0.22,1,0.36,1) both; }
+
+/* CTA button spring */
+.cta-primary {
+  transition: background 0.18s, color 0.18s,
+              transform 0.3s cubic-bezier(0.22,1,0.36,1);
+}
+.cta-primary:hover { background: var(--text); color: #fff; transform: translateY(-1px); }
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 600px) {
   .hero-title { font-size: clamp(44px, 11vw, 72px); }
