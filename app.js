@@ -8,6 +8,20 @@ const RECENT_VIDEOS = [
 
 async function loadApps() {
   const apps = await fetch('data/apps.json').then(r=>r.json());
+
+  // Hero floating pills
+  const heroPillDurations = [3.2, 3.8, 4.1, 3.5, 4.4, 3.0];
+  const heroPillDelays    = [0, 0.4, 0.8, 1.2, 0.6, 1.5];
+  document.getElementById('hero-apps').innerHTML = apps.map((app, i) => `
+    <a class="hero-app-pill" href="${app.buyUrl||app.downloadUrl||'#'}"
+       style="animation-duration:${heroPillDurations[i]}s; animation-delay:${heroPillDelays[i]}s;">
+      <div class="hero-app-pill-icon">
+        <img src="${app.icon}" alt="${app.name}"
+             onerror="this.parentElement.textContent='${EMOJI_FALLBACK[app.id]||'📦'}'" />
+      </div>
+      <span class="hero-app-pill-name">${app.name}</span>
+    </a>`).join('');
+
   document.getElementById('app-grid').innerHTML = apps.map(app=>`
     <a class="app-card card-hidden" href="${app.buyUrl||app.downloadUrl||'#'}">
       <div class="app-icon"><img src="${app.icon}" alt="${app.name}" onerror="this.parentElement.textContent='${EMOJI_FALLBACK[app.id]||'📦'}'" /></div>
