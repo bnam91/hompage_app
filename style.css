@@ -101,31 +101,57 @@ hr { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
 .footer-links a:hover { color: var(--text); }
 
 /* ===== ANIMATIONS ===== */
-@keyframes floatBob {
-  0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(-8px); }
-}
-
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(12px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
+/* 메인 카피 reveal — blur 해제 + 미세 lift (은근히) */
+@keyframes revealCopy {
+  from { opacity: 0; filter: blur(3px); transform: translateY(8px); }
+  to   { opacity: 1; filter: blur(0);   transform: translateY(0); }
+}
+/* gradient-text 전용 — blur 없이 scale+lift (Safari -webkit-text-fill 충돌 방지) */
+@keyframes revealCopyGradient {
+  from { opacity: 0; transform: translateY(10px) scale(0.99); }
+  to   { opacity: 1; transform: translateY(0)    scale(1); }
+}
+
+/* 메인 카피 waver — 감쇠 패턴, JS로 6~8s 간격 간헐 발동 */
+@keyframes waver {
+  0%   { transform: translateX(0)      rotate(0deg); }
+  15%  { transform: translateX(-1.2px) rotate(-0.12deg); }
+  30%  { transform: translateX(0.8px)  rotate(0.08deg); }
+  45%  { transform: translateX(-0.6px) rotate(-0.06deg); }
+  60%  { transform: translateX(0.4px)  rotate(0.04deg); }
+  75%  { transform: translateX(-0.2px) rotate(-0.02deg); }
+  90%  { transform: translateX(0.1px)  rotate(0.01deg); }
+  100% { transform: translateX(0)      rotate(0deg); }
+}
+.title-waving {
+  animation: waver 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* floatBob — 진폭 6px, 3~4s */
+@keyframes floatBob {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-6px); }
+}
+
 /* Hero stagger */
 .hero-badge    { animation: fadeUp 0.5s cubic-bezier(0.22,1,0.36,1) 0.05s both; }
 .hero-title    { opacity: 1; } /* 줄별로 처리 */
-.title-line-1  { display: block; animation: fadeUp 0.6s cubic-bezier(0.22,1,0.36,1) 0.12s both; }
-.title-line-2  { display: block; animation: fadeUp 0.7s cubic-bezier(0.22,1,0.36,1) 0.24s both; }
-.hero-sub      { animation: fadeUp 0.5s cubic-bezier(0.22,1,0.36,1) 0.36s both; }
-.hero-cta      { animation: fadeUp 0.5s cubic-bezier(0.22,1,0.36,1) 0.44s both; }
+.title-line-1  { display: block; animation: revealCopy 1.0s cubic-bezier(0.16,1,0.3,1) 0.10s both; }
+.title-line-2  { display: block; animation: revealCopyGradient 1.0s cubic-bezier(0.16,1,0.3,1) 0.28s both; }
+.hero-sub      { animation: fadeUp 0.5s cubic-bezier(0.22,1,0.36,1) 0.62s both; }
+.hero-cta      { animation: fadeUp 0.5s cubic-bezier(0.22,1,0.36,1) 0.72s both; }
 
 /* Hero app icons */
 .hero-apps {
   display: flex;
   gap: 12px;
-  margin-top: 56px;
+  margin-top: 48px;
   flex-wrap: wrap;
-  animation: fadeUp 0.6s cubic-bezier(0.22,1,0.36,1) 0.58s both;
 }
 
 .hero-app-pill {
@@ -136,22 +162,26 @@ hr { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
   border: 1px solid var(--border);
   border-radius: 12px;
   padding: 8px 12px 8px 8px;
-  /* floatBob은 JS에서 .bob-ready 클래스 추가 후 시작 */
   cursor: pointer;
   text-decoration: none;
   color: inherit;
-  transition: background 0.18s, border-color 0.18s,
-              box-shadow 0.3s cubic-bezier(0.22,1,0.36,1);
+  /* entrance: delay는 JS에서 inline으로 주입, backwards fill이 delay 중 투명 처리 */
+  animation: fadeUp 0.45s cubic-bezier(0.22,1,0.36,1) both;
+  transition: background 0.22s, border-color 0.22s,
+              transform 0.4s cubic-bezier(0.22,1,0.36,1),
+              box-shadow 0.4s cubic-bezier(0.22,1,0.36,1);
 }
 
 .hero-app-pill.bob-ready {
   animation: floatBob ease-in-out infinite;
+  animation-fill-mode: none;
 }
 
 .hero-app-pill:hover {
   background: #ececee;
   border-color: rgba(0,0,0,0.14);
-  box-shadow: 0 4px 14px rgba(0,0,0,0.07);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
 }
 
 .hero-app-pill-icon {
@@ -225,9 +255,10 @@ hr { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
 @media (prefers-reduced-motion: reduce) {
   .hero-badge, .hero-title, .title-line-1, .title-line-2,
   .hero-sub, .hero-cta, .hero-apps {
-    animation: none; opacity: 1; transform: none;
+    animation: none; opacity: 1; transform: none; filter: none;
   }
-  .hero-app-pill, .hero-app-pill.bob-ready { animation: none; }
+  .hero-app-pill, .hero-app-pill.bob-ready { animation: none; opacity: 1; }
+  .title-waving { animation: none; }
   .card-hidden { opacity: 1; transform: none; }
   .yt-hidden { opacity: 1; transform: none; }
   * { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
